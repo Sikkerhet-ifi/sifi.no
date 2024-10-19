@@ -9,13 +9,10 @@ const About = () => {
           <section className="flex flex-col md:flex-row items-center">
             <div>
               <h2 className="text-2xl font-semibold mb-2"></h2>
-              <p>Sikkerhet på IFI</p>
-            </div>
-          </section>
-          <section className="flex flex-col md:flex-row items-center">
-            <div>
-              <h2 className="text-2xl font-semibold mb-2">Ta kontakt</h2>
-              <p>sikkerhet@ifi.no</p>
+              <p>
+                Sikkerhet på IFI (SIFI) er linjeforeningen for
+                informasjonsikkerhet ved Universitetet i Oslo
+              </p>
             </div>
           </section>
           <section className="flex flex-col items-center">
@@ -36,7 +33,11 @@ const About = () => {
           <section className="flex flex-col md:flex-row items-center">
             <div>
               <h2 className="text-2xl font-semibold mb-2">Interne</h2>
-              <p>Takk til alle interne!</p>
+              <p>
+                Uten om hovedstyret, har SIFI opptil 15 frivillige studenter som
+                er det vi kaller for interne. De støtter hovedstyret med
+                arrangementer og andre oppgaver. Takk til alle interne!
+              </p>
             </div>
           </section>
         </div>

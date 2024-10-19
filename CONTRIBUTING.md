@@ -19,8 +19,7 @@ Gjør 1 av disse 2:
 Installer nødvendige dependencies
 
 ```shell
-npm install slugs
-npm install -D prettier
+npm install
 ```
 
 Kompiler og vis nettsiden på localhost:
@@ -38,3 +37,7 @@ npm run dev
 
 - Inne på github repoet, vil stå "1 contribute ahead of main" -> trykk på "contribute" -> new pull request.
 - deretter skriv inn informasjon om endringene osv.
+
+#### Ferdiglagde komponenter
+
+https://ui.shadcn.com/docs/components
