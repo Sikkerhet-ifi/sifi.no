@@ -8,7 +8,6 @@ const About = () => {
         <div className="space-y-8">
           <section className="flex flex-col md:flex-row items-center">
             <div>
-              <h2 className="text-2xl font-semibold mb-2"></h2>
               <p>
                 Sikkerhet på IFI (SIFI) er linjeforeningen for
                 informasjonsikkerhet ved Universitetet i Oslo
