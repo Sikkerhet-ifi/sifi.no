@@ -9,7 +9,7 @@ const Navbar = () => {
   const { theme } = useTheme();
 
   return (
-    <div className="flex flex-col md:flex-row items-center justify-between md:justify-items-end p-4 md:p-8 dark:bg-gray-900">
+    <div className="flex flex-col md:flex-row items-center justify-between md:justify-items-end pb-10 md:px-24 dark:bg-gray-900">
       <div className="flex-shrink-0">
         <picture className="w-40 md:w-auto h-40 md:h-auto px-5">
           <Image
@@ -25,7 +25,7 @@ const Navbar = () => {
           ></Image>
         </picture>
       </div>
-      <div className='flex flex-row justify-between space-x-4 mt-4 md:mt-0 items-center text-center md:text-left"'>
+      <div className='flex flex-row justify-between space-x-4 md:mt-0 items-center text-center md:text-left"'>
         <div className="text-gray-900 dark:text-gray-100 mt-4 md:mt-0 text-lg md:text-xl font-semibold text-center md:text-left">
           <Link href="/" className="hover:underline">
             Hjem

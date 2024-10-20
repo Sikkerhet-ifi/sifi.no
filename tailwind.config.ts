@@ -13,7 +13,6 @@ const config: Config = {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
         sifiblue: '#0051f1',
-        textfooter: '#ededed',
       },
       borderRadius: {
         lg: 'var(--radius)',

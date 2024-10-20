@@ -1,5 +1,6 @@
 'use client';
 import * as React from 'react';
+import { useEffect } from 'react';
 import { Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
 
@@ -12,6 +13,13 @@ export default function ModeToggle() {
     console.log(theme);
     setTheme(theme === 'light' ? 'dark' : 'light');
   };
+
+  useEffect(() => {
+    // This will help you fetch the initial theme from localStorage or set the default theme.
+    console.log(window.localStorage.getItem('theme'));
+    const currentTheme = window.localStorage.getItem('theme') || 'light';
+    setTheme(currentTheme);
+  });
 
   return (
     <Button
