@@ -6,6 +6,9 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 
+// Set revalidation time for ISR
+export const revalidate = 30;
+
 // Get all possible events for static compiling
 export async function generateStaticParams() {
   // Sanity query to get all slugs for your documents
@@ -15,7 +18,7 @@ export async function generateStaticParams() {
   const slugs = await client.fetch(query);
 
   // Return the list of params as required by Next.js
-  return slugs.map((event: { slug: string; }) => ({
+  return slugs.map((event: { slug: string }) => ({
     slug: event.slug, // The slug used in the route
   }));
 }
@@ -28,14 +31,13 @@ const urlFor = (source: SanityImageSource) =>
     ? imageUrlBuilder({ projectId, dataset }).image(source)
     : null;
 
-const options = { next: { revalidate: 30 } };
-
 export default async function PostPage({
   params,
 }: {
   params: { slug: string };
 }) {
-  const event = await client.fetch<SanityDocument>(POST_QUERY, params, options);
+  // Remove options to ensure static generation
+  const event = await client.fetch<SanityDocument>(POST_QUERY, params);
   if (event == null) {
     return notFound();
   }
