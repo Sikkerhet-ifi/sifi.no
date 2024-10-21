@@ -9,18 +9,18 @@ import Image from 'next/image';
 // Get all possible events for static compiling
 export async function generateStaticParams() {
   // Sanity query to get all slugs for your documents
-  const query = `*[_type == "post"]{ "slug": slug.current }`;
+  const query = `*[_type == "event"]{ "slug": slug.current }`;
 
   // Fetch the slugs from Sanity
   const slugs = await client.fetch(query);
 
   // Return the list of params as required by Next.js
-  return slugs.map((post: { slug: string; }) => ({
-    slug: post.slug, // The slug used in the route
+  return slugs.map((event: { slug: string; }) => ({
+    slug: event.slug, // The slug used in the route
   }));
 }
 
-const POST_QUERY = `*[_type == "post" && slug.current == $slug][0]`;
+const POST_QUERY = `*[_type == "event" && slug.current == $slug][0]`;
 
 const { projectId, dataset } = client.config();
 const urlFor = (source: SanityImageSource) =>
@@ -35,12 +35,12 @@ export default async function PostPage({
 }: {
   params: { slug: string };
 }) {
-  const post = await client.fetch<SanityDocument>(POST_QUERY, params, options);
-  if (post == null) {
+  const event = await client.fetch<SanityDocument>(POST_QUERY, params, options);
+  if (event == null) {
     return notFound();
   }
-  const postImageUrl = post.image
-    ? urlFor(post.image)?.width(550).height(310).url()
+  const eventImageUrl = event.image
+    ? urlFor(event.image)?.width(550).height(310).url()
     : null;
 
   return (
@@ -48,20 +48,20 @@ export default async function PostPage({
       <Link href="/" className="hover:underline">
         ← Tilbake til forsiden
       </Link>
-      {postImageUrl && (
+      {eventImageUrl && (
         <Image
-          src={postImageUrl}
-          alt={post.title}
+          src={eventImageUrl}
+          alt={event.title}
           className="aspect-video rounded-xl"
           width="550"
           height="310"
         />
       )}
-      <h1 className="text-4xl font-bold mb-8">{post.title}</h1>
+      <h1 className="text-4xl font-bold mb-8">{event.title}</h1>
       <div className="prose">
-        <p>Published: {new Date(post.publishedAt).toLocaleDateString()}</p>
-        <p>Tidspunkt: {new Date(post.eventStart).toLocaleDateString()} </p>
-        {Array.isArray(post.body) && <PortableText value={post.body} />}
+        <p>Published: {new Date(event.publishedAt).toLocaleDateString()}</p>
+        <p>Tidspunkt: {new Date(event.eventStart).toLocaleDateString()} </p>
+        {Array.isArray(event.body) && <PortableText value={event.body} />}
       </div>
     </main>
   );
