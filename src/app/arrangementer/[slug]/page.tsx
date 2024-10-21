@@ -6,6 +6,20 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 
+// Get all possible events for static compiling
+export async function generateStaticParams() {
+  // Sanity query to get all slugs for your documents
+  const query = `*[_type == "post"]{ "slug": slug.current }`;
+
+  // Fetch the slugs from Sanity
+  const slugs = await client.fetch(query);
+
+  // Return the list of params as required by Next.js
+  return slugs.map((post: { slug: string; }) => ({
+    slug: post.slug, // The slug used in the route
+  }));
+}
+
 const POST_QUERY = `*[_type == "post" && slug.current == $slug][0]`;
 
 const { projectId, dataset } = client.config();
