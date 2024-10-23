@@ -28,7 +28,7 @@ export default async function PostPage({
     ? urlFor(post.image)?.width(550).height(310).url()
     : null;
   return (
-    <main className="container mx-auto min-h-screen max-w-3xl p-8 flex flex-col gap-4">
+    <main className="min-h-screen w-full p-8 flex flex-col justify-top items-center gap-4 m-0 dark:bg-gray-900">
       <Link href="/" className="hover:underline">
         ← Tilbake til forsiden
       </Link>
@@ -42,7 +42,7 @@ export default async function PostPage({
         />
       )}
       <h1 className="text-4xl font-bold mb-8">{post.title}</h1>
-      <div className="prose">
+      <div className="prose md:flex md:flex-col md:justify-center md:items-center md:flex-wrap md:text-center md:w-96">
         <p>Published: {new Date(post.publishedAt).toLocaleDateString()}</p>
         <p>Tidspunkt: {new Date(post.eventStart).toLocaleDateString()} </p>
         {Array.isArray(post.body) && <PortableText value={post.body} />}

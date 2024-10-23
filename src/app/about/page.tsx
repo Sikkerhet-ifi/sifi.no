@@ -4,31 +4,47 @@ const About = () => {
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-8">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold mb-8 text-center">Om oss</h1>
+        <h1 className="text-4xl font-bold mb-8 text-center">Hvem er vi?</h1>
         <div className="space-y-8">
           <section className="flex flex-col md:flex-row items-center">
             <div>
               <p>
-                Sikkerhet på IFI (SIFI) er linjeforeningen for
-                informasjonsikkerhet ved Universitetet i Oslo
+                SIFI, Sikkerhet på IFI, er linjeforeningen for
+                Informasjonssikkerhet ved UiO, og alle studenter ved{' '}
+                <a
+                  href="https://www.uio.no/studier/program/informasjonssikkerhet-master/"
+                  className="hover:underline"
+                >
+                  Master i Informasjonssikkerhet
+                </a>{' '}
+                er automatisk medlemmer i foreningen.
+              </p>
+              <p>
+                Vi arrangerer sosiale og faglige arrangement for å skape et godt
+                miljø for våre medlemmer og andre interesserte studenter ved
+                Institutt for Informatikk. Foreningen drives av frivillige og
+                engasjerte studenter
               </p>
             </div>
           </section>
           <section className="flex flex-col items-center">
             <div className="items-center">
-              <h2 className="text-2xl font-semibold mb-2">Hovedstyret</h2>
+              <h2 className="text-2xl font-semibold mb-2">Møt styret 2024</h2>
               <p className="py-4">
-                SIFI sitt hovedstyre består av:
-                <li>Leder: Karishma Sharma</li>
-                <li>Nestleder: Vetle Bergstad</li>
-                <li>Økonomiansvarlig: Magnus Dhelie</li>
-                <li>Bedriftskontakt: Pavel Blindheim</li>
-                <li>PR: Karin Pettersen</li>
-                <li>Arrangementansvarlig: Pawel Rodziewicz</li>
-                <li>Styremedlem: Adrian Skansen</li>
-                <li>Styremedlem: Pernille Vannebo</li>
-                <li>Styremedlem: Tobias With Thorsen</li>
+                Linjeforeningens styre består av 9 medlemmer som er demokratisk
+                valgt, og har som hovedansvar å aktivt arbeide for å drive
+                linjeforeningen, styre økonomien og sørge for at foreningens
+                formål blir møtt. SIFI sitt hovedstyre består av:
               </p>
+              <li>Leder: Karishma Sharma</li>
+              <li>Nestleder: Vetle Bergstad</li>
+              <li>Økonomiansvarlig: Magnus Dhelie</li>
+              <li>Bedriftskontakt: Pavel Blindheim</li>
+              <li>PR: Karin Pettersen</li>
+              <li>Arrangementansvarlig: Pawel Rodziewicz</li>
+              <li>Styremedlem: Adrian Skansen</li>
+              <li>Styremedlem: Pernille Vannebo</li>
+              <li>Styremedlem: Tobias With Thorsen</li>
             </div>
             <div className="flex-shrink-0 mb-4 md:mb-0 md:mr-6">
               <Image
