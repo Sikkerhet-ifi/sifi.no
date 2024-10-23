@@ -15,6 +15,15 @@ const urlFor = (source: SanityImageSource) =>
     ? imageUrlBuilder({ projectId, dataset }).image(source)
     : null;
 const options = { next: { revalidate: 30 } };
+interface Post {
+  _id: string;
+  title: string;
+  image?: SanityImageSource; 
+  slug?: { current: string }; 
+  publishedAt: string;
+  eventStart: string;
+  body: string; 
+}
 async function PostPage() {
   const posts = await client.fetch<SanityDocument>(POST_QUERY, {}, options);
   console.log(posts);
@@ -23,7 +32,7 @@ async function PostPage() {
   }
   return (
     <div>
-      {posts.map((post) => {
+      {posts.map((post : Post) => {
         const postImageUrl = post.image
           ? urlFor(post.image)?.width(550).height(310).url()
           : null;
