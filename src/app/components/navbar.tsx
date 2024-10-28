@@ -9,7 +9,7 @@ const Navbar = () => {
   const { theme } = useTheme();
 
   return (
-    <div className="flex flex-col md:flex-row flex-wrap items-center justify-between md:justify-items-end pb-2 md:pb-10 md:px-24 dark:bg-gray-900">
+    <div className="flex flex-col md:flex-row flex-wrap items-center justify-between md:justify-items-end pb-4 md:pb-10 md:px-24 dark:bg-gray-900">
       <div className="flex-shrink-0">
         <picture className="w-40 md:w-auto h-40 md:h-auto px-5">
           <Image
