@@ -36,7 +36,7 @@ const Footer = () => {
           </Link>
         </div>
         <div>
-          <p className="text-white underline">Samarbeidspartner:</p>
+          <p className="text-white underline">Hovedsamarbeidspartner:</p>
           <picture>
             <Image
               src={'/images/mnemonic-logo.png'}

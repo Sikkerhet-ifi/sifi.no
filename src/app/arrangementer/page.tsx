@@ -18,11 +18,11 @@ const options = { next: { revalidate: 30 } };
 interface Post {
   _id: string;
   title: string;
-  image?: SanityImageSource; 
-  slug?: { current: string }; 
+  image?: SanityImageSource;
+  slug?: { current: string };
   publishedAt: string;
   eventStart: string;
-  body: string; 
+  body: string;
 }
 async function PostPage() {
   const posts = await client.fetch<SanityDocument>(POST_QUERY, {}, options);
@@ -32,7 +32,7 @@ async function PostPage() {
   }
   return (
     <div>
-      {posts.map((post : Post) => {
+      {posts.map((post: Post) => {
         const postImageUrl = post.image
           ? urlFor(post.image)?.width(550).height(310).url()
           : null;
@@ -40,26 +40,28 @@ async function PostPage() {
         const page_id = post.slug?.current || '';
 
         return (
-          <div key={post._id} className="mb-12">
+          <div key={post._id} className="mb-12 p-8">
             {postImageUrl && (
               <Link href={`/arrangementer/${page_id}`}>
                 <Image
                   src={postImageUrl}
                   alt={post.title}
-                  className="aspect-video rounded-xl"
+                  className="aspect-video rounded-xl pb-2"
                   width="550"
                   height="310"
                 />
               </Link>
             )}
-            <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
+            <h1 className="text-4xl font-bold mb-4 ">{post.title}</h1>
 
             <div className="">
               <p>
-                Published: {new Date(post.publishedAt).toLocaleDateString()}
+                Publisert:{' '}
+                {new Date(post.publishedAt).toLocaleDateString('nb-NO')}
               </p>
               <p>
-                Tidspunkt: {new Date(post.eventStart).toLocaleDateString()}{' '}
+                Tidspunkt:{' '}
+                {new Date(post.eventStart).toLocaleDateString('nb-NO')}{' '}
               </p>
             </div>
           </div>

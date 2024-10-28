@@ -28,7 +28,7 @@ export default async function PostPage({
     ? urlFor(post.image)?.width(550).height(310).url()
     : null;
   return (
-    <main className="min-h-screen w-full p-8 flex flex-col justify-top items-center gap-4 m-0 dark:bg-gray-900">
+    <main className="min-h-screen w-full p-4 flex flex-col justify-top items-center gap-4 m-0 dark:bg-gray-900">
       <Link href="/" className="hover:underline">
         ← Tilbake til forsiden
       </Link>

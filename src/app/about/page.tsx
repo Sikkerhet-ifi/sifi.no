@@ -36,15 +36,17 @@ const About = () => {
                 linjeforeningen, styre økonomien og sørge for at foreningens
                 formål blir møtt. SIFI sitt hovedstyre består av:
               </p>
-              <li>Leder: Karishma Sharma</li>
-              <li>Nestleder: Vetle Bergstad</li>
-              <li>Økonomiansvarlig: Magnus Dhelie</li>
-              <li>Bedriftskontakt: Pavel Blindheim</li>
-              <li>PR: Karin Pettersen</li>
-              <li>Arrangementansvarlig: Pawel Rodziewicz</li>
-              <li>Styremedlem: Adrian Skansen</li>
-              <li>Styremedlem: Pernille Vannebo</li>
-              <li>Styremedlem: Tobias With Thorsen</li>
+              <ul className="list-inside list-disc pb-8">
+                <li>Leder: Karishma Sharma</li>
+                <li>Nestleder: Vetle Bergstad</li>
+                <li>Økonomiansvarlig: Magnus Dhelie</li>
+                <li>Bedriftskontakt: Pavel Blindheim</li>
+                <li>PR: Karin Pettersen</li>
+                <li>Arrangementansvarlig: Pawel Rodziewicz</li>
+                <li>Styremedlem: Adrian Skansen</li>
+                <li>Styremedlem: Pernille Vannebo</li>
+                <li>Styremedlem: Tobias With Thorsen</li>
+              </ul>
             </div>
             <div className="flex-shrink-0 mb-4 md:mb-0 md:mr-6">
               <Image

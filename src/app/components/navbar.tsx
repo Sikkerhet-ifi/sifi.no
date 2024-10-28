@@ -27,22 +27,34 @@ const Navbar = () => {
       </div>
       <div className="flex flex-row flex-wrap align-items:center justify-center space-x-4 md:mt-0 items-center text-center md:text-left">
         <div className="text-gray-900 dark:text-gray-100 mt-4 md:mt-0 text-lg md:text-xl font-semibold text-center md:text-left">
-          <Link href="/" className="hover:underline">
+          <Link
+            href="/"
+            className="hover:underline hover:bg-sifiblue hover:text-white hover:rounded-full hover:p-2"
+          >
             Hjem
           </Link>
         </div>
         <div className="text-gray-900 dark:text-gray-100 mt-4 md:mt-0 text-lg md:text-xl font-semibold text-center md:text-left">
-          <Link href="/arrangementer" className="hover:underline">
+          <Link
+            href="/arrangementer"
+            className="hover:underline hover:bg-sifiblue hover:text-white hover:rounded-full hover:p-2"
+          >
             Arrangementer
           </Link>
         </div>
         <div className="text-gray-900 dark:text-gray-100 mt-4 md:mt-0 text-lg md:text-xl font-semibold text-center md:text-left">
-          <Link href="/stillingsannonser" className="hover:underline">
+          <Link
+            href="/stillingsannonser"
+            className="hover:underline hover:bg-sifiblue hover:text-white hover:rounded-full hover:p-2"
+          >
             Stillingsannonser
           </Link>
         </div>
         <div className="text-gray-900 dark:text-gray-100 mt-4 md:mt-0 text-lg md:text-xl font-semibold text-center md:text-left">
-          <Link href="/about" className="hover:underline">
+          <Link
+            href="/about"
+            className="hover:underline hover:bg-sifiblue hover:text-white hover:rounded-full hover:p-2"
+          >
             Om oss
           </Link>
         </div>
