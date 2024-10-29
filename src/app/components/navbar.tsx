@@ -29,7 +29,7 @@ const Navbar = () => {
         <div className="text-gray-900 dark:text-gray-100 mt-4 md:mt-0 text-lg md:text-xl font-semibold text-center md:text-left">
           <Link
             href="/"
-            className="hover:underline hover:bg-sifiblue hover:text-white hover:rounded-full hover:p-2"
+            className="p-2 hover:underline hover:bg-sifiblue hover:text-white hover:rounded-full "
           >
             Hjem
           </Link>
@@ -37,7 +37,7 @@ const Navbar = () => {
         <div className="text-gray-900 dark:text-gray-100 mt-4 md:mt-0 text-lg md:text-xl font-semibold text-center md:text-left">
           <Link
             href="/arrangementer"
-            className="hover:underline hover:bg-sifiblue hover:text-white hover:rounded-full hover:p-2"
+            className="p-2 hover:underline hover:bg-sifiblue hover:text-white hover:rounded-full "
           >
             Arrangementer
           </Link>
@@ -45,7 +45,7 @@ const Navbar = () => {
         <div className="text-gray-900 dark:text-gray-100 mt-4 md:mt-0 text-lg md:text-xl font-semibold text-center md:text-left">
           <Link
             href="/stillingsannonser"
-            className="hover:underline hover:bg-sifiblue hover:text-white hover:rounded-full hover:p-2"
+            className="p-2 hover:underline hover:bg-sifiblue hover:text-white hover:rounded-full "
           >
             Stillingsannonser
           </Link>
@@ -53,7 +53,7 @@ const Navbar = () => {
         <div className="text-gray-900 dark:text-gray-100 mt-4 md:mt-0 text-lg md:text-xl font-semibold text-center md:text-left">
           <Link
             href="/about"
-            className="hover:underline hover:bg-sifiblue hover:text-white hover:rounded-full hover:p-2"
+            className="p-2 hover:underline hover:bg-sifiblue hover:text-white hover:rounded-full "
           >
             Om oss
           </Link>
