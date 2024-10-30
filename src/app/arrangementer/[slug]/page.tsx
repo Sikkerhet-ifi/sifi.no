@@ -28,23 +28,29 @@ export default async function PostPage({
     ? urlFor(post.image)?.width(550).height(310).url()
     : null;
   return (
-    <main className="min-h-screen w-full p-4 flex flex-col justify-top items-center gap-4 m-0 dark:bg-gray-900">
-      <Link href="/" className="hover:underline">
-        ← Tilbake til forsiden
-      </Link>
-      {postImageUrl && (
-        <Image
-          src={postImageUrl}
-          alt={post.title}
-          className="aspect-video rounded-xl"
-          width="550"
-          height="310"
-        />
-      )}
-      <h1 className="text-4xl font-bold mb-8">{post.title}</h1>
-      <div className="prose md:flex md:flex-col md:justify-center md:items-center md:flex-wrap md:text-center md:w-96">
-        <p>Published: {new Date(post.publishedAt).toLocaleDateString()}</p>
-        <p>Tidspunkt: {new Date(post.eventStart).toLocaleDateString()} </p>
+    <main className="min-h-screen p-4 flex flex-col md:flex-row md:justify-center md:items-start items-center gap-4 m-0 dark:bg-gray-900">
+      <div className="">
+        <Link href="/" className="hover:underline">
+          ← Tilbake til forsiden
+        </Link>
+        {postImageUrl && (
+          <Image
+            src={postImageUrl}
+            alt={post.title}
+            className="aspect-video rounded-xl"
+            width="550"
+            height="310"
+          />
+        )}
+        <h1 className="text-4xl font-bold mb-8">{post.title}</h1>
+        <p>
+          Published: {new Date(post.publishedAt).toLocaleDateString('nb-NO')}
+        </p>
+        <p>
+          Tidspunkt: {new Date(post.eventStart).toLocaleDateString('nb-NO')}{' '}
+        </p>
+      </div>
+      <div className="prose md:flex md:flex-col md:justify-center md:items-center md:flex-wrap md:text-center md:w-96 md:pt-8">
         {Array.isArray(post.body) && <PortableText value={post.body} />}
       </div>
     </main>

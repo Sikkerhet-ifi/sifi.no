@@ -43,7 +43,7 @@ export default function Home() {
           <p className="text-center max-w-xl pb-4">
             Vår samarbeidspartner er en av Europas ledende innenfor
             cybersikkerhetstjenester. Ekspertene deres er alltid klar til å
-            håndtere cyberangrep test.
+            håndtere cyberangrep.
           </p>
           <Link
             href="https://www.mnemonic.io/"
