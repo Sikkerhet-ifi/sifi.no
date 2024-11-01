@@ -1,5 +1,3 @@
-import Image from 'next/image';
-
 const About = () => {
   return (
     <div className="min-h-screen dark:bg-gray-900 text-gray-900 dark:text-gray-100 p-8">
