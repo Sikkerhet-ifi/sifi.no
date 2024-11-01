@@ -21,7 +21,7 @@ const Footer = () => {
           </Link>
         </div>
         <div className="flex flex-col pb-2">
-          <h4 className="text-white underline">Følg oss 💻</h4>
+          <p className="text-white underline">Følg oss 💻</p>
           <Link
             href="https://www.facebook.com/profile.php?id=100091625065665"
             className="hover:underline text-white"
@@ -35,7 +35,7 @@ const Footer = () => {
             Instagram
           </Link>
         </div>
-        <div>
+        <div className="flex flex-col pb-8 md:pb-4 md:pt-10">
           <p className="text-white underline">Hovedsamarbeidspartner:</p>
           <picture>
             <Image
@@ -43,6 +43,17 @@ const Footer = () => {
               alt="white logo"
               height={300}
               width={250}
+              className="shrink-0"
+            ></Image>
+          </picture>
+        </div>
+        <div>
+          <picture>
+            <Image
+              src={'/images/logo_full_utenbak_white.png'}
+              alt="SIFI full logo"
+              height={250}
+              width={200}
               className="shrink-0"
             ></Image>
           </picture>

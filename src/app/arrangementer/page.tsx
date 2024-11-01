@@ -52,7 +52,9 @@ async function PostPage() {
                 />
               </Link>
             )}
-            <h1 className="text-4xl font-bold mb-4 ">{post.title}</h1>
+            <Link href={`/arrangementer/${page_id}`}>
+              <h1 className="text-4xl font-bold mb-4 ">{post.title}</h1>
+            </Link>
 
             <div className="">
               <p>

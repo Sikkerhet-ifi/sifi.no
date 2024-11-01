@@ -3,24 +3,17 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Darkmode from './darkmode';
-import { useTheme } from 'next-themes';
 
 const Navbar = () => {
-  const { theme } = useTheme();
-
   return (
-    <div className="flex flex-col md:flex-row flex-wrap items-center justify-between md:justify-items-end pb-4 md:pb-10 md:px-24 dark:bg-gray-900">
+    <div className="flex flex-col md:flex-row flex-wrap items-center justify-between justify md:justify-items-center pb-4 md:pb-2 md:px-96 bg-slate-100 dark:bg-gray-900 border-b-2 border-slate-200 md:border-slate-100">
       <div className="flex-shrink-0">
         <picture className="w-40 md:w-auto h-40 md:h-auto px-5">
           <Image
-            src={
-              theme === 'light'
-                ? '/images/logo_full_utenbak.png'
-                : '/images/logo_full_utenbak_hvitskrift.png'
-            }
+            src={'/images/logo_liten_utenbak.png'}
             alt="logo"
-            width={200}
-            height={100}
+            width={50}
+            height={25}
             className="object-contain"
           />
         </picture>

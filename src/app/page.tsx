@@ -2,12 +2,21 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  // Ensure theme is loaded before rendering
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null; // Avoid rendering until mounted
 
   return (
-    <div className="flex flex-col items-center justify-items-center dark:bg-gray-900 min-h-screen p-8 pb-2 gap-8 sm:p-8 font-[family-name:var(--font-geist-sans)]">
+    <div className="flex flex-col items-center justify-items-center dark:bg-gray-900 p-8 pb-20 md:pb-32 gap-8 sm:p-8 font-[family-name:var(--font-geist-sans)]">
       <h1 className="text-3xl mb:text-5xl font-bold mb-2 text-center underline decoration-sifiblue">
         SIFI - Linjeforeningen for informasjonssikkerhet
       </h1>
@@ -31,7 +40,7 @@ export default function Home() {
         <div className="flex flex-col justify-center items-center">
           <Image
             src={
-              theme === 'light'
+              resolvedTheme === 'light'
                 ? '/images/mnemonic-logo.png'
                 : '/images/mnemonic_logo_light.png'
             }

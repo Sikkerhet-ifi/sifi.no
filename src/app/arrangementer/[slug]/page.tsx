@@ -28,7 +28,7 @@ export default async function PostPage({
     ? urlFor(post.image)?.width(550).height(310).url()
     : null;
   return (
-    <main className="min-h-screen p-4 flex flex-col md:flex-row md:justify-center md:items-start items-center gap-4 m-0 dark:bg-gray-900">
+    <main className="min-h-screen p-4 pt-8 md:pt-10 flex flex-col md:flex-row md:justify-center md:items-start items-center gap-4 m-0 dark:bg-gray-900">
       <div className="">
         <Link href="/" className="hover:underline">
           ← Tilbake til forsiden
@@ -51,7 +51,44 @@ export default async function PostPage({
         </p>
       </div>
       <div className="prose md:flex md:flex-col md:justify-center md:items-center md:flex-wrap md:text-center md:w-96 md:pt-8">
-        {Array.isArray(post.body) && <PortableText value={post.body} />}
+        {Array.isArray(post.body) && (
+          <PortableText
+            value={post.body}
+            components={{
+              marks: {
+                link: ({ children, value }) => (
+                  <a
+                    href={value.href}
+                    className="text-blue-500 hover:underline"
+                  >
+                    {children}
+                  </a>
+                ),
+              },
+              block: {
+                // Define block-level styles here for headers, paragraphs, etc.
+                // Not entirely sure why, but h2 and below works, but not h1.
+                h2: ({ children }) => (
+                  <h2 className="text-2xl font-bold">{children}</h2>
+                ),
+                normal: ({ children }) => (
+                  <p className="whitespace-pre-line leading-tight">
+                    {children
+                      ? Array.isArray(children)
+                        ? children.map((line: string, index: number) => (
+                            <span key={index}>
+                              {line}
+                              <br />
+                            </span>
+                          ))
+                        : children // Handle the case where children is a single element or string
+                      : null}
+                  </p>
+                ),
+              },
+            }}
+          />
+        )}
       </div>
     </main>
   );
