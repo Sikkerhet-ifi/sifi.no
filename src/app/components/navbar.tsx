@@ -10,21 +10,26 @@ const Navbar = () => {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
   return (
-    <div className="flex flex-col md:flex-row flex-wrap items-center justify-between justify md:justify-items-center pb-4 md:pb-2 md:px-96 bg-slate-100 dark:bg-gray-900 border-b-2 border-slate-200 md:border-slate-100">
-      <div className="flex-shrink-0">
-        <picture className="w-40 md:w-auto h-40 md:h-auto px-5">
-          <Image
-            src={'/images/logo_liten_utenbak.png'}
-            alt="logo"
-            width={50}
-            height={25}
-            className="object-contain"
-          />
-        </picture>
-      </div>
-      <div className="flex flex-row">
-        <div className="space-x-4 md:mt-0 md:space-x-8 items-center text-center md:text-left">
+    <div className="w-full bg-slate-100 dark:bg-gray-900 border-b-2 border-slate-200 md:border-slate-100">
+      <div className="flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto px-4 md:px-8 lg:px-12 py-2">
+        {/* Logo */}
+        <div className="flex-shrink-0">
+          <picture className="w-32 md:w-auto h-20 md:h-auto px-2">
+            <Image
+              src={'/images/logo_liten_utenbak.png'}
+              alt="logo"
+              width={50}
+              height={25}
+              className="object-contain"
+            />
+          </picture>
+        </div>
+
+        {/* Nav + darkmode */}
+        <div className="flex items-center space-x-4">
+          {/* Hamburger menu (mobile) */}
           <button
             onClick={toggleMenu}
             className="md:hidden p-2 text-gray-900 dark:text-gray-100"
@@ -33,58 +38,60 @@ const Navbar = () => {
             <span className="block w-6 h-0.5 bg-gray-900 dark:bg-gray-100 mb-1"></span>
             <span className="block w-6 h-0.5 bg-gray-900 dark:bg-gray-100"></span>
           </button>
-          {/* LENKER */}
+
+          {/* Links */}
           <div
-            className={`${isOpen ? 'block' : 'hidden'} flex flex-col md:flex-row md:flex md:items-center md:space-x-4 space-y-4 md:space-y-0`}
+            className={`${
+              isOpen ? 'block' : 'hidden'
+            } md:flex md:items-center md:space-x-6 text-lg md:text-xl font-semibold`}
           >
-            <div className="text-gray-900 dark:text-gray-100 mt-4 md:mt-0 text-lg md:text-xl font-semibold text-center md:text-left">
-              <Link
-                href="/"
-                className="p-2 hover:underline hover:bg-sifiblue hover:text-white hover:rounded-full "
-                onClick={toggleMenu}
-              >
-                Hjem
-              </Link>
-            </div>
-            <div className="text-gray-900 dark:text-gray-100 mt-4 md:mt-0 text-lg md:text-xl font-semibold text-center md:text-left">
-              <Link
-                href="/arrangementer"
-                className="p-2 hover:underline hover:bg-sifiblue hover:text-white hover:rounded-full "
-                onClick={toggleMenu}
-              >
-                Arrangementer
-              </Link>
-            </div>
-            <div className="text-gray-900 dark:text-gray-100 mt-4 md:mt-0 text-lg md:text-xl font-semibold text-center md:text-left">
-              <Link
-                href="/stillingsannonser"
-                className="p-2 hover:underline hover:bg-sifiblue hover:text-white hover:rounded-full "
-                onClick={toggleMenu}
-              >
-                Stillingsannonser
-              </Link>
-            </div>
-            <div className="text-gray-900 dark:text-gray-100 mt-4 md:mt-0 text-lg md:text-xl font-semibold text-center md:text-left">
-              <Link
-                href="/about"
-                className="p-2 hover:underline hover:bg-sifiblue hover:text-white hover:rounded-full "
-                onClick={toggleMenu}
-              >
-                Om oss
-              </Link>
-            </div>
-            <div className="text-gray-900 dark:text-gray-100 mt-4 md:mt-0 text-lg md:text-xl font-semibold text-center md:text-left">
-              <Link
-                href="/si-ifra"
-                className="p-2 hover:underline hover:bg-sifiblue hover:text-white hover:rounded-full "
-                onClick={toggleMenu}
-              >
-                Si ifra
-              </Link>
-            </div>
+            <Link
+              href="/"
+              className="p-2 hover:underline hover:bg-sifiblue hover:text-white hover:rounded-full"
+              onClick={toggleMenu}
+            >
+              Hjem
+            </Link>
+            <Link
+              href="/arrangementer"
+              className="p-2 hover:underline hover:bg-sifiblue hover:text-white hover:rounded-full"
+              onClick={toggleMenu}
+            >
+              Arrangementer
+            </Link>
+            <Link
+              href="/stillingsannonser"
+              className="p-2 hover:underline hover:bg-sifiblue hover:text-white hover:rounded-full"
+              onClick={toggleMenu}
+            >
+              Stillingsannonser
+            </Link>
+            <Link
+              href="/merch"
+              className="p-2 hover:underline hover:bg-sifiblue hover:text-white hover:rounded-full"
+              onClick={toggleMenu}
+            >
+              Merch
+            </Link>
+            <Link
+              href="/about"
+              className="p-2 hover:underline hover:bg-sifiblue hover:text-white hover:rounded-full"
+              onClick={toggleMenu}
+            >
+              Om oss
+            </Link>
+            <Link
+              href="/si-ifra"
+              className="p-2 hover:underline hover:bg-sifiblue hover:text-white hover:rounded-full"
+              onClick={toggleMenu}
+            >
+              Si ifra
+            </Link>
           </div>
+
+          {/* Darkmode toggle */}
+          <Darkmode />
         </div>
-        <Darkmode></Darkmode>
       </div>
     </div>
   );
