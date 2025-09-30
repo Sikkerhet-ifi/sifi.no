@@ -41,7 +41,7 @@ async function MerchPageInner() {
   return (
     <div className="w-full max-w-6xl mx-auto px-4 py-8">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {merchItems.map((item) => {
+        {merchItems.map((item: Merch) => {
           const imageUrls =
             item.images?.map((image: SanityImageSource) =>
               urlFor(image)?.width(550).height(310).url()
