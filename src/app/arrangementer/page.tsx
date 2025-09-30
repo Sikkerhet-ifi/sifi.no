@@ -26,7 +26,7 @@ interface Post {
 }
 
 async function PostPage() {
-  const posts = await client.fetch<Post[]>(POST_QUERY, {}, options);
+  const posts = await client.fetch<SanityDocument>(POST_QUERY, {}, options);
   if (!posts || posts.length === 0) {
     return (
       <div className="min-h-screen flex flex-col justify-start items-center gap-4 pt-20 dark:bg-gray-900">

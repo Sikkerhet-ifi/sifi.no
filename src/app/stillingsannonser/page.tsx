@@ -29,7 +29,7 @@ interface Post {
 }
 
 async function AnnonsePage() {
-  const posts = await client.fetch<Post[]>(ANNONSE_QUERY, {}, options);
+  const posts = await client.fetch<SanityDocument>(ANNONSE_QUERY, {}, options);
 
   if (!posts || posts.length === 0) {
     return (
