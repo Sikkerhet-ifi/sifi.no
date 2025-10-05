@@ -83,7 +83,7 @@ export default function Home() {
         </p>
         <Link
           href="https://www.mnemonic.io/"
-          className="inline w-48 bg-sifiblue px-2 py-1 text-center rounded-full hover:underline"
+          className="inline w-48 bg-sifiblue px-2 py-1 text-center rounded-full hover:underline text-white"
         >
           Les mer om dem
         </Link>
