@@ -59,6 +59,7 @@ const boards = {
       },
     ],
   },
+  // "name" has to be unique
   2026: {
     groupPhoto: '/images/Styret/Styret25.jpeg',
     members: [
@@ -73,16 +74,32 @@ const boards = {
         role: 'Økonomiansvarlig',
         image: '/images/spørsmål.png',
       },
-      { name: 'Ny', role: 'Bedriftskontakt', image: '/images/spørsmål.png' },
-      { name: 'Ny', role: 'PR', image: '/images/spørsmål.png' },
       {
-        name: 'Ny',
+        name: 'Ny bedrift',
+        role: 'Bedriftskontakt',
+        image: '/images/spørsmål.png',
+      },
+      { name: 'Ny pr', role: 'PR', image: '/images/spørsmål.png' },
+      {
+        name: 'Ny arr',
         role: 'Arrangementansvarlig',
         image: '/images/spørsmål.png',
       },
-      { name: 'Ny', role: 'Teknisk ansvarlig', image: '/images/spørsmål.png' },
-      { name: 'Ny', role: 'Styremedlem', image: '/images/spørsmål.png' },
-      { name: 'Ny', role: 'Styremedlem', image: '/images/spørsmål.png' },
+      {
+        name: 'Ny teknisk',
+        role: 'Teknisk ansvarlig',
+        image: '/images/spørsmål.png',
+      },
+      {
+        name: 'Ny medlem1',
+        role: 'Styremedlem',
+        image: '/images/spørsmål.png',
+      },
+      {
+        name: 'Ny medlem2',
+        role: 'Styremedlem',
+        image: '/images/spørsmål.png',
+      },
     ],
   },
   // Add more years later...

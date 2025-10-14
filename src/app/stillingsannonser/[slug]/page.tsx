@@ -1,4 +1,9 @@
-import { PortableText, type SanityDocument } from 'next-sanity';
+import {
+  PortableText,
+  PortableTextReactComponents,
+  QueryParams,
+  type SanityDocument,
+} from 'next-sanity';
 import imageUrlBuilder from '@sanity/image-url';
 import type { SanityImageSource } from '@sanity/image-url/lib/types/types';
 import { client } from '@/sanity/client';
@@ -17,11 +22,11 @@ const options = { next: { revalidate: 30 } };
 export default async function PostPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
   const post = await client.fetch<SanityDocument>(
     ANNONSE_QUERY,
-    params,
+    params as QueryParams,
     options
   );
   console.log(post);
@@ -64,39 +69,41 @@ export default async function PostPage({
         {Array.isArray(post.body) && (
           <PortableText
             value={post.body}
-            components={{
-              marks: {
-                link: ({ children, value }) => (
-                  <a
-                    href={value.href}
-                    className="text-blue-500 hover:underline"
-                  >
-                    {children}
-                  </a>
-                ),
-              },
-              block: {
-                // Define block-level styles here for headers, paragraphs, etc.
-                // Not entirely sure why, but h2 and below works, but not h1.
-                h2: ({ children }) => (
-                  <h2 className="text-2xl font-bold">{children}</h2>
-                ),
-                normal: ({ children }) => (
-                  <p className="whitespace-pre-line leading-tight">
-                    {children
-                      ? Array.isArray(children)
-                        ? children.map((line: string, index: number) => (
-                            <span key={index}>
-                              {line}
-                              <br />
-                            </span>
-                          ))
-                        : children // Handle the case where children is a single element or string
-                      : null}
-                  </p>
-                ),
-              },
-            }}
+            components={
+              {
+                marks: {
+                  link: ({ children, value }) => (
+                    <a
+                      href={value.href}
+                      className="text-blue-500 hover:underline"
+                    >
+                      {children}
+                    </a>
+                  ),
+                },
+                block: {
+                  // Define block-level styles here for headers, paragraphs, etc.
+                  // Not entirely sure why, but h2 and below works, but not h1.
+                  h2: ({ children }) => (
+                    <h2 className="text-2xl font-bold">{children}</h2>
+                  ),
+                  normal: ({ children }) => (
+                    <p className="whitespace-pre-line leading-tight">
+                      {children
+                        ? Array.isArray(children)
+                          ? children.map((line: string, index: number) => (
+                              <span key={index}>
+                                {line}
+                                <br />
+                              </span>
+                            ))
+                          : children // Handle the case where children is a single element or string
+                        : null}
+                    </p>
+                  ),
+                },
+              } as Partial<PortableTextReactComponents>
+            }
           />
         )}
       </div>

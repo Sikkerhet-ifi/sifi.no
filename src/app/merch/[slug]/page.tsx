@@ -1,4 +1,4 @@
-import { type SanityDocument } from 'next-sanity';
+import { QueryParams, type SanityDocument } from 'next-sanity';
 import imageUrlBuilder from '@sanity/image-url';
 import type { SanityImageSource } from '@sanity/image-url/lib/types/types';
 import { client } from '@/sanity/client';
@@ -26,11 +26,11 @@ const options = { next: { revalidate: 30 } };
 export default async function MerchDetailPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
   const merch = await client.fetch<SanityDocument>(
     MERCH_QUERY,
-    params,
+    params as QueryParams,
     options
   );
 
