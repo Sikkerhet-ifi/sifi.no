@@ -20,7 +20,7 @@ body {
 
 @layer utilities {
   .text-balance {
-    text-wrap: balance;
+    text-wrap: normal;
   }
 }
 

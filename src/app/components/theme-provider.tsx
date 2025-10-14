@@ -5,7 +5,7 @@ import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import { type ThemeProviderProps } from 'next-themes/dist/types';
 import { ReactNode } from 'react';
 
-// written out for new version of next
+// written out for the new version of next
 export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
   return (
     <NextThemesProvider

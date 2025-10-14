@@ -122,17 +122,19 @@ const Carousel = React.forwardRef<
 
     return (
       <CarouselContext.Provider
-        value={{
-          carouselRef,
-          api: api,
-          opts,
-          orientation:
-            orientation || (opts?.axis === 'y' ? 'vertical' : 'horizontal'),
-          scrollPrev,
-          scrollNext,
-          canScrollPrev,
-          canScrollNext,
-        }}
+        value={
+          {
+            carouselRef,
+            api: api,
+            opts,
+            orientation:
+              orientation || (opts?.axis === 'y' ? 'vertical' : 'horizontal'),
+            scrollPrev,
+            scrollNext,
+            canScrollPrev,
+            canScrollNext,
+          }
+        }
       >
         <div
           ref={ref}
