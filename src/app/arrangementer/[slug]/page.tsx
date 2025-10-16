@@ -31,9 +31,10 @@ export default async function PostPage({
 }: {
   params: Promise<{ slug: string }>;
 }) {
+  const resolvedParams = await params;
   const post = await client.fetch<SanityDocument>(
     POST_QUERY,
-    params as QueryParams,
+    resolvedParams as QueryParams,
     options
   );
   console.log(
@@ -45,31 +46,31 @@ export default async function PostPage({
 
   const imageUrls =
     post.images?.map((image: SanityImageSource) =>
-      urlFor(image)?.width(550).height(310).url()
+      urlFor(image)?.width(2600).height(900).auto('format').url()
     ) || [];
 
   return (
-    <main className="min-h-screen p-4 pt-8 md:pt-10 mb-1 flex flex-col md:flex-row md:justify-center md:items-start items-center gap-4 m-0 dark:bg-gray-900">
-      <div className="flex flex-col md:pr-8 max-w-[550px]">
-        <Link href="/arrangementer" className="hover:underline">
+    <main className="min-h-screen pt-8 dark:bg-gray-900 flex flex-col items-center">
+      <div className="max-w-5xl mx-auto px-4">
+        <Link href="/arrangementer" className="hover:underline inline-block mb-4">
           ← Tilbake til arrangementer
         </Link>
-        <div className="relative">
-          <Carousel className="w-full px-0 m-0">
+
+        {/* Banner picture */}
+        <div className="w-full mb-6">
+          <Carousel className="w-full">
             <CarouselContent>
               {Array.from({ length: imageUrls.length }).map((_, index) => (
                 <CarouselItem key={index}>
-                  <div className="p-1">
-                    {imageUrls && (
-                      <Image
-                        src={imageUrls[index]}
-                        alt={post.title}
-                        className="aspect-video rounded-xl"
-                        width="550"
-                        height="310"
-                      />
-                    )}
-                  </div>
+                  <Image
+                    src={imageUrls[index]}
+                    alt={post.title}
+                    width={2600}
+                    height={900}
+                    className="w-full h-auto rounded-xl"
+                    unoptimized
+                    priority
+                  />
                 </CarouselItem>
               ))}
             </CarouselContent>
@@ -77,25 +78,41 @@ export default async function PostPage({
             <CarouselNext className="right-2" />
           </Carousel>
         </div>
-
-        <h1 className="text-4xl font-bold md:mb-1 text-pretty break-words">
-          {post.title}
-        </h1>
-        <p>
-          Tidspunkt:{' '}
-          {new Date(post.eventStart).toLocaleDateString('nb-NO', {
-            weekday: 'long',
-            day: 'numeric',
-            month: 'long',
-            year: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit',
-            timeZone: 'Europe/Oslo',
-          })}{' '}
-        </p>
-        <p className="max-w-[550px]">Sted: {post.place}</p>
       </div>
-      <div className="prose md:flex md:flex-col md:justify-center md:items-center md:flex-wrap md:text-center md:w-96 md:pt-8">
+
+        {/* Title and info */}
+        <div className="mb-8 flex flex-col items-center text-center">
+          <h1 className="text-5xl font-bold mb-4">{post.title}</h1>
+
+          <div className="flex flex-col md:flex-row md:items-center md:justify-center gap-4 mb-4 text-lg">
+            <p className="text-gray-700 dark:text-gray-300">
+              📅 {new Date(post.eventStart).toLocaleDateString('nb-NO', {
+              weekday: 'long',
+              day: 'numeric',
+              month: 'long',
+              year: 'numeric',
+              hour: '2-digit',
+              minute: '2-digit',
+              timeZone: 'Europe/Oslo',
+            })}
+            </p>
+            <p className="text-gray-700 dark:text-gray-300">📍 {post.place}</p>
+          </div>
+
+          {post.registrationButton?.url && (
+            <a
+            href={post.registrationButton.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-semibold transition-colors text-lg"
+            >
+          {post.registrationButton.text || 'Meld deg på'}
+            </a>
+            )}
+        </div>
+      {/* Main description */}
+      <div
+        className="prose prose-lg max-w-3xl text-center">
         {Array.isArray(post.body) && (
           <PortableText
             value={post.body}
@@ -122,11 +139,11 @@ export default async function PostPage({
                       {children
                         ? Array.isArray(children)
                           ? children.map((line: string, index: number) => (
-                              <span key={index}>
+                            <span key={index}>
                                 {line}
-                                <br />
+                              <br />
                               </span>
-                            ))
+                          ))
                           : children // Handle the case where children is a single element or string
                         : null}
                     </p>
