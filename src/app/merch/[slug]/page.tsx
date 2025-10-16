@@ -28,9 +28,10 @@ export default async function MerchDetailPage({
 }: {
   params: Promise<{ slug: string }>;
 }) {
+  const resolvedParams = await params;
   const merch = await client.fetch<SanityDocument>(
     MERCH_QUERY,
-    params as QueryParams,
+    resolvedParams as QueryParams,
     options
   );
 

@@ -24,9 +24,10 @@ export default async function PostPage({
 }: {
   params: Promise<{ slug: string }>;
 }) {
+  const resolvedParams = await params;
   const post = await client.fetch<SanityDocument>(
     ANNONSE_QUERY,
-    params as QueryParams,
+    resolvedParams as QueryParams,
     options
   );
   console.log(post);
