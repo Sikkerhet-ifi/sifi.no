@@ -52,7 +52,10 @@ export default async function PostPage({
   return (
     <main className="min-h-screen pt-8 dark:bg-gray-900 flex flex-col items-center">
       <div className="max-w-5xl mx-auto px-4">
-        <Link href="/arrangementer" className="hover:underline inline-block mb-4">
+        <Link
+          href="/arrangementer"
+          className="hover:underline inline-block mb-4"
+        >
           ← Tilbake til arrangementer
         </Link>
 
@@ -80,13 +83,14 @@ export default async function PostPage({
         </div>
       </div>
 
-        {/* Title and info */}
-        <div className="mb-8 flex flex-col items-center text-center">
-          <h1 className="text-5xl font-bold mb-4">{post.title}</h1>
+      {/* Title and info */}
+      <div className="mb-8 flex flex-col items-center text-center">
+        <h1 className="text-5xl font-bold mb-4">{post.title}</h1>
 
-          <div className="flex flex-col md:flex-row md:items-center md:justify-center gap-4 mb-4 text-lg">
-            <p className="text-gray-700 dark:text-gray-300">
-              📅 {new Date(post.eventStart).toLocaleDateString('nb-NO', {
+        <div className="flex flex-col md:flex-row md:items-center md:justify-center gap-4 mb-4 text-lg">
+          <p className="text-gray-700 dark:text-gray-300">
+            📅{' '}
+            {new Date(post.eventStart).toLocaleDateString('nb-NO', {
               weekday: 'long',
               day: 'numeric',
               month: 'long',
@@ -95,24 +99,23 @@ export default async function PostPage({
               minute: '2-digit',
               timeZone: 'Europe/Oslo',
             })}
-            </p>
-            <p className="text-gray-700 dark:text-gray-300">📍 {post.place}</p>
-          </div>
+          </p>
+          <p className="text-gray-700 dark:text-gray-300">📍 {post.place}</p>
+        </div>
 
-          {post.registrationButton?.url && (
-            <a
+        {post.registrationButton?.url && (
+          <a
             href={post.registrationButton.url}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-semibold transition-colors text-lg"
-            >
-          {post.registrationButton.text || 'Meld deg på'}
-            </a>
-            )}
-        </div>
+          >
+            {post.registrationButton.text || 'Meld deg på'}
+          </a>
+        )}
+      </div>
       {/* Main description */}
-      <div
-        className="prose prose-lg max-w-3xl text-center">
+      <div className="prose prose-lg max-w-3xl text-center px-4">
         {Array.isArray(post.body) && (
           <PortableText
             value={post.body}
@@ -139,11 +142,11 @@ export default async function PostPage({
                       {children
                         ? Array.isArray(children)
                           ? children.map((line: string, index: number) => (
-                            <span key={index}>
+                              <span key={index}>
                                 {line}
-                              <br />
+                                <br />
                               </span>
-                          ))
+                            ))
                           : children // Handle the case where children is a single element or string
                         : null}
                     </p>
