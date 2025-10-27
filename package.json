@@ -31,7 +31,8 @@
     "sanity": "^4.10.3",
     "slugs": "^0.1.3",
     "tailwind-merge": "^2.5.4",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "vite": "^7.1.11"
   },
   "devDependencies": {
     "@types/node": "^20",
