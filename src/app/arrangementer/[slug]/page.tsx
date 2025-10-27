@@ -142,11 +142,11 @@ export default async function PostPage({
                       {children
                         ? Array.isArray(children)
                           ? children.map((line: string, index: number) => (
-                              <span key={index}>
+                            <span key={index}>
                                 {line}
-                                <br />
+                              <br />
                               </span>
-                            ))
+                          ))
                           : children // Handle the case where children is a single element or string
                         : null}
                     </p>
