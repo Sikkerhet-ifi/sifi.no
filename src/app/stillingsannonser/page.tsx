@@ -49,6 +49,17 @@ async function AnnonsePage() {
       return eventEnd.getTime() > today.getTime();
     }) || [];
 
+  // Viser riktig info når sanity ikke er tomt, men filtered
+  if (filteredPosts.length === 0) {
+    return (
+      <div className="min-h-screen flex flex-col justify-start items-center gap-4 pt-20 dark:bg-gray-900">
+        <p className="text-2xl font-semibold">Her var det tomt gitt!</p>
+        <p className="text-xl">
+          Følg med her for fremtidige stillingsannonser 😄
+        </p>
+      </div>
+    );
+  }
   return (
     <div className="w-full max-w-6xl mx-auto px-4 py-8">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
