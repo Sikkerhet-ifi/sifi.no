@@ -47,7 +47,7 @@ export default function Home() {
           className="p-6 bg-slate-100 dark:bg-gray-800 rounded-xl shadow hover:shadow-lg transition"
         >
           <h2 className="text-2xl font-bold mb-2">💼 Stillingsannonser</h2>
-          <p>Finn spennende stillinger fra vår samarbeidspartnere.</p>
+          <p>Finn spennende stillinger fra vår samarbeidspartner.</p>
         </Link>
 
         <Link
